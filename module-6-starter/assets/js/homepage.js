@@ -48,7 +48,7 @@ var displayRepos = function(repos, searchTerm) {
 
         // create a status element
         var statusEl = document.createElement("span");
-        statusEl.classList = "flex-row align-center";
+        statusEl.classList = "flex-row align-center"; 
 
         // check if current repo has issues or not
         if (repos[i].open_issues_count > 0) {
