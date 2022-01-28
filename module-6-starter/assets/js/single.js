@@ -4,9 +4,10 @@ var repoNameEl = document.querySelector("#repo-name");
 
 var getRepoName = function () {
     // grab repo name from url query string
+    // grabs repo name from url query string then .splits() the string into 2 strings
     var queryString = document.location.search;
     var repoName = queryString.split("=")[1];
-
+    
     if (repoName) { // checks if the repo name acutally exists
         // display repo name on page
         repoNameEl.textContent = repoName;
@@ -35,6 +36,7 @@ var getRepoIssues = function (repo) {
         }
         else {
             //if not successful, redirect to homepage
+            // must have a repo that exists, else you will be returned back to homepage
             document.location.replace("./index.html");
         }
     });
@@ -78,7 +80,7 @@ var displayIssues = function (issues) {
         issueContainerEl.appendChild(issueEl);
     }
 };
-
+// creates an a element that links you to more issues if you'd like to visit
 var displayWarning = function (repo) {
     //add text to warning container 
     limitWarningEl.textContent = "To see more than 30 issues, visit ";
@@ -89,6 +91,7 @@ var displayWarning = function (repo) {
     linkEl.setAttribute("target", "_blank"); // when clicked, will open new tab
 
     //append created linkEl a to DOM element on the HTML
+    // this appears towards the bottom of screen, when the user has more issues than 30
     limitWarningEl.appendChild(linkEl);
 };
 
